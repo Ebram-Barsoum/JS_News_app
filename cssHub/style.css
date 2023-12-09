@@ -1,0 +1,60 @@
+/*Global Variables*/
+:root{
+    --main-color:#fff;
+    --alt-color:#000;
+    --main-trans : .5s;
+}
+
+
+/******** Navbar || Section********/
+.navbar .nav-link{
+    border:none !important;
+    outline:none !important;
+    box-shadow: none;
+}
+.navbar .nav-link:focus{
+    color: var(--main-color) !important;
+}
+.navbar form input:focus{
+    border-color: var(--main-color) !important;
+}
+.navbar form button,
+.btn{
+  transition: var(--main-trans);
+  -webkit-transition: var(--main-trans);
+  -moz-transition: var(--main-trans);
+  -ms-transition: var(--main-trans);
+  -o-transition: var(--main-trans);
+}
+.navbar form button:hover,
+.btn:hover{
+    background-color: var(--main-color) !important;
+    color:var(--alt-color) !important;
+}
+/**********News || Section**********/
+#news{
+    min-height: 65vh;
+    max-height: auto;
+}
+#news-type{
+    display: flex !important;
+    gap:10px !important;
+
+}
+#news-type h3{
+    text-transform: capitalize !important;
+    font-weight: bold !important;
+    font-size:35px !important;
+    display: inline-block !important;
+}
+
+.article img{
+    height: 200px;
+}
+.article .description{
+    height:50px;
+    text-overflow: ellipsis;
+    overflow: hidden;
+    white-space:wrap;
+}
+
