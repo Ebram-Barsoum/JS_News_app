@@ -77,7 +77,7 @@ function display_news(articles) {
 
 // query news
 async function search(input) {
-    const response = await fetch(`https://newsapi.org/v2/everything?q=${encodeURIComponent(input)}&apiKey=bb18971f8b354cf88e23e2e5b7dd6e6b`);
+    const response = await fetch(`http://newsapi.org/v2/everything?q=${encodeURIComponent(input)}&apiKey=bb18971f8b354cf88e23e2e5b7dd6e6b`);
     if (response.status == 200) {
         let data = await response.json();
         let articles = data.articles;
@@ -101,7 +101,7 @@ async function fetch_news(category = 'general') {
     }
     else {
         // our custom api according to the category
-        URL = `https://newsapi.org/v2/top-headlines?country=us&category=${category}&apiKey=bb18971f8b354cf88e23e2e5b7dd6e6b`;
+        URL = `http://newsapi.org/v2/top-headlines?country=us&category=${category}&apiKey=bb18971f8b354cf88e23e2e5b7dd6e6b`;
         newsType.innerHTML=`<h3><i class="fa-solid fa-magnifying-glass fs-4 me-2 text-bg-warning p-2 rounded-5 "></i>${category}</h3>`; 
     }
     newsType.prepend(icon);
