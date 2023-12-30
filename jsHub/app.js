@@ -8,6 +8,7 @@ let sportBtn = document.getElementById('sports');
 let technologyBtn = document.getElementById('technology');
 
 let categories = [generalBtn, businessBtn, entertainmentBtn, healthBtn, scienceBtn, sportBtn, technologyBtn];
+
 // search related varibles
 let searchBtn = document.getElementById('search-btn');
 let searchQuery = document.getElementById('search-input');
@@ -30,7 +31,7 @@ const TECHNOLOGY_NEWS = 'https://newsapi.org/v2/top-headlines?country=us&categor
 // displaying data in our website
 function display_news(articles) {
     news.innerHTML = "";
-    console.log(articles);
+
     if (articles.length == 0) return;
 
     articles.forEach((element) => {
@@ -77,7 +78,7 @@ function display_news(articles) {
 
 // query news
 async function search(input) {
-    const response = await fetch(`http://newsapi.org/v2/everything?q=${encodeURIComponent(input)}&apiKey=bb18971f8b354cf88e23e2e5b7dd6e6b`);
+    const response = await fetch(`https://newsapi.org/v2/everything?q=${encodeURIComponent(input)}&apiKey=bb18971f8b354cf88e23e2e5b7dd6e6b`);
     if (response.status == 200) {
         let data = await response.json();
         let articles = data.articles;
@@ -101,7 +102,7 @@ async function fetch_news(category = 'general') {
     }
     else {
         // our custom api according to the category
-        URL = `http://newsapi.org/v2/top-headlines?country=us&category=${category}&apiKey=bb18971f8b354cf88e23e2e5b7dd6e6b`;
+        URL = `https://newsapi.org/v2/top-headlines?country=us&category=${category}&apiKey=bb18971f8b354cf88e23e2e5b7dd6e6b`;
         newsType.innerHTML=`<h3><i class="fa-solid fa-magnifying-glass fs-4 me-2 text-bg-warning p-2 rounded-5 "></i>${category}</h3>`; 
     }
     newsType.prepend(icon);
@@ -112,7 +113,6 @@ async function fetch_news(category = 'general') {
     if (response.status == 200) {
         let data = await response.json();
         articles = data.articles;        
-        console.log(articles[15].description);
         display_news(articles);
     }
     else {
@@ -149,7 +149,6 @@ searchBtn.addEventListener('click', (e) => {
 
 //initialize the app
 function initialize() {
-    let articles = fetch_news();
-    display_news(articles);
+    fetch_news();
 }
 initialize();
